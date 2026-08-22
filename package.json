@@ -2,6 +2,7 @@
   "name": "winksplit-web",
   "private": true,
   "version": "1.0.0",
+  "description": "WINKSPLIT is an Indian eco-friendly paper packaging brand providing sustainable packaging solutions for restaurants, cafes, cloud kitchens, caterers, retailers and other businesses, with bulk ordering and custom packaging options.",
   "type": "module",
   "scripts": {
     "dev": "vite",
