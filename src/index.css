@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #FAF7F2;
+    color: #1E2320;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #E0F0E8;
+    color: #0A241A;
+  }
+}
+
+/* Tactile Paper Texture Layer */
+.paper-texture {
+  background-image: radial-gradient(rgba(140, 98, 57, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.kraft-paper-bg {
+  background-color: #C29B6C;
+  background-image: radial-gradient(rgba(84, 56, 28, 0.07) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4ECE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C29B6C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #133D2D;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(194, 155, 108, 0.25);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(194, 155, 108, 0.28);
+}
+
+.glass-dark {
+  background: rgba(14, 46, 34, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Luxury 3D Depth Card Tilts */
+.card-3d {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -12px rgba(19, 61, 45, 0.12), 0 0 0 1.5px rgba(19, 61, 45, 0.15);
+}
+
+/* Scroll-Driven Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered Child Reveal */
+.scroll-reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 60ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 130ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 270ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 340ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 410ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
+.scroll-reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 550ms; opacity: 1; transform: translateY(0); }
+
+/* Shimmer Light Reflection Sweep */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.75s ease;
+  pointer-events: none;
+}
+
+.shimmer-btn:hover::after {
+  left: 130%;
+}
+
+/* Ambient Floating Keyframes */
+@keyframes soft-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 5.5s ease-in-out infinite;
+}
+
+@keyframes soft-float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.8deg);
+  }
+}
+
+.animate-soft-float-reverse {
+  animation: soft-float-reverse 6s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+.animate-glow-breathe {
+  animation: glow-breathe 7s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulse-ring 2.5s infinite;
+}
